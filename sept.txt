@@ -1,0 +1,69 @@
+1.
+~$ cat>empty1.txt
+~$ cat>empty2.txt
+~$ cat>empty3.txt
+~$ cat>empty4.txt
+~$ cat>empty5.txt
+
+2.
+~$ cat>text.txt
+name: Sneha Dutta
+age: 20
+address: 75/1, Prankrishna Saha Lane, Kolkata-700036
+
+3.
+[Display contents of text file]
+~$ cat text.txt
+4.
+~$ cp text.txt newtext.txt
+
+5.
+~$ cat > matter.txt
+Hi I am Sneha.
+Welcome to Kolkata.
+
+6.
+~$ cat text.txt matter.txt > txtmat.txt
+~$ cat txtmat.txt
+name: Sneha Dutta
+age: 20
+address: 75/1, Prankrishna Saha Lane, Kolkata-700036
+Hi I am Sneha.
+Welcome to Kolkata.
+
+7.
+~$ rm text.txt
+
+9.
+~$ mv newtext.txt oldtext.txt
+
+10.
+~$ mkdir mydir
+
+11.
+~$ mv oldtext.txt matter.txt mydir
+
+12.
+~$ mkdir newdir
+
+13.
+~$ cp mydir/* newdir
+
+14.
+~$ date +%d/%m/%Y
+10/09/2021
+
+15.
+~$ who
+sneha                     tty2                     2021-09-10 14:40
+
+16. 
+~$ ls -a
+
+18.
+The command rmdir xyz fails to work when the directory xyz is not empty.
+
+19.
+If cd is executed without arguments, the user is returned to the home directory.
+
+

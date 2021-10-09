@@ -1,0 +1,2 @@
+This is r1 file%.
+I am supposed to create @file 1.

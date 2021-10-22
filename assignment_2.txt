@@ -1,0 +1,176 @@
+a.
+~$ head -3 teachers
+T001 | P.C. | D.S.    | Kolkata
+T002 | K.M. | O.S.    | Howrah
+T003 | Mdu  | Graphics| Jadavpur
+
+b.
+~$ ls -l -t | tail -1
+-rw-r--r-- 1 user user   0 Sep 24 07:08 file1
+The command ‘ls -l –t’ lists all the files in the directory in order of their modification time (Newest first). The command ‘tail -1’ then takes this result as input and prints the last line.
+
+c.
+~$ head -c 100 teachers
+T001 | P.C. | D.S.    | Kolkata
+T002 | K.M. | O.S.    | Howrah
+T003 | Mdu  | Graphics| Jadavpur
+T004
+
+d.
+~$ tail -3 teachers
+T018 | K.D  | Hindi   | Howrah
+T019 | B.K  | Stats   | Kolkata
+T020 | K.K  | English | Coochbehar
+
+
+e.
+~$ tail +5 teachers
+T005 | V.D  | Basic EE| Gariahat
+T006 | A.S  | Physics | Maniktala
+T007 | Bdu  | Chem    | Park Circus
+T008 | A.S.G| AI      | Satrapur
+T009 | H.I  | Oops    | Malda
+T010 | G.U  | Maths   | Mukundapur
+T011 | S.D  | Bio     | Bankur
+T012 | J.H  | HR      | Alipur Duar
+T013 | D.K  | Analog  | Murshidabad
+T014 | K.I  | Economy | Andul
+T015 | A.K  | History | Baruipur
+T016 | S.G  | CLPI    | Kolkata
+T017 | J.L  | Law     | Alipur
+T018 | K.D  | Hindi   | Howrah
+T019 | B.K  | Stats   | Kolkata
+T020 | K.K  | English | Coochbehar
+
+
+f.
+~$ head -5 teachers | tee shortlist.txt
+T001 | P.C. | D.S.    | Kolkata
+T002 | K.M. | O.S.    | Howrah
+T003 | Mdu  | Graphics| Jadavpur
+T004 | J.S  | Automata| Santragachi
+T005 | V.D  | Basic EE| Gariahat
+
+g.
+~$ cut -d "|" -f 2,4 shortlist.txt
+ P.C. | Kolkata
+ K.M. | Howrah
+ Mdu  | Jadavpur
+ J.S  | Santragachi
+ V.D  | Gariahat
+
+h.
+~$ cut -d "|" -f 3 shortlist.txt | tee cutlist1.txt
+ D.S.    
+ O.S.    
+ Graphics
+ Automata
+ Basic EE
+
+i.
+~$ cat shortlist.txt | cut -d "|" -f 1,2,4 > cutlist2.txt
+
+j.
+~$ paste cutlist1.txt cutlist2.txt
+ D.S.           T001 | P.C. | Kolkata
+ O.S.           T002 | K.M. | Howrah
+ Graphics       T003 | Mdu  | Jadavpur
+ Automata       T004 | J.S  | Santragachi
+ Basic EE       T005 | V.D  | Gariahat
+
+
+k.
+~$ sort -k 2 teachers
+T015 | A.K  | History | Baruipur
+T006 | A.S  | Physics | Maniktala
+T008 | A.S.G| AI      | Satrapur
+T019 | B.K  | Stats   | Kolkata
+T007 | Bdu  | Chem    | Park Circus
+T013 | D.K  | Analog  | Murshidabad
+T010 | G.U  | Maths   | Mukundapur
+T009 | H.I  | Oops    | Malda
+T012 | J.H  | HR      | Alipur Duar
+T017 | J.L  | Law     | Alipur
+T004 | J.S  | Automata| Santragachi
+T018 | K.D  | Hindi   | Howrah
+T014 | K.I  | Economy | Andul
+T020 | K.K  | English | Coochbehar
+T002 | K.M. | O.S.    | Howrah
+T003 | Mdu  | Graphics| Jadavpur
+T001 | P.C. | D.S.    | Kolkata
+T011 | S.D  | Bio     | Bankur
+T016 | S.G  | CLPI    | Kolkata
+T005 | V.D  | Basic EE| Gariahat
+
+l.
+~$ sort -r teachers
+T020 | K.K  | English | Coochbehar
+T019 | B.K  | Stats   | Kolkata
+T018 | K.D  | Hindi   | Howrah
+T017 | J.L  | Law     | Alipur
+T016 | S.G  | CLPI    | Kolkata
+T015 | A.K  | History | Baruipur
+T014 | K.I  | Economy | Andul
+T013 | D.K  | Analog  | Murshidabad
+T012 | J.H  | HR      | Alipur Duar
+T011 | S.D  | Bio     | Bankur
+T010 | G.U  | Maths   | Mukundapur
+T009 | H.I  | Oops    | Malda
+T008 | A.S.G| AI      | Satrapur
+T007 | Bdu  | Chem    | Park Circus
+T006 | A.S  | Physics | Maniktala
+T005 | V.D  | Basic EE| Gariahat
+T004 | J.S  | Automata| Santragachi
+T003 | Mdu  | Graphics| Jadavpur
+T002 | K.M. | O.S.    | Howrah
+T001 | P.C. | D.S.    | Kolkata
+
+
+m.
+No, it is not possible to sort a file containing numeric values using command sort numfile. Using this command sorts the numbers with respect to their first digit only. This gives the output:
+10
+2
+27
+4
+5
+ 
+To sort it in order, we use the command
+~$ sort -n numfile.txt
+
+n.
+~$ cat teachers | tr '|' '~' | tr "[:lower:]" "[:upper:]"
+T001 ~ P.C. ~ D.S.    ~ KOLKATA
+T002 ~ K.M. ~ O.S.    ~ HOWRAH
+T003 ~ MDU  ~ GRAPHICS~ JADAVPUR
+T004 ~ J.S  ~ AUTOMATA~ SANTRAGACHI
+T005 ~ V.D  ~ BASIC EE~ GARIAHAT
+T006 ~ A.S  ~ PHYSICS ~ MANIKTALA
+T007 ~ BDU  ~ CHEM    ~ PARK CIRCUS
+T008 ~ A.S.G~ AI      ~ SATRAPUR
+T009 ~ H.I  ~ OOPS    ~ MALDA
+T010 ~ G.U  ~ MATHS   ~ MUKUNDAPUR
+T011 ~ S.D  ~ BIO     ~ BANKUR
+T012 ~ J.H  ~ HR      ~ ALIPUR DUAR
+T013 ~ D.K  ~ ANALOG  ~ MURSHIDABAD
+T014 ~ K.I  ~ ECONOMY ~ ANDUL
+T015 ~ A.K  ~ HISTORY ~ BARUIPUR
+T016 ~ S.G  ~ CLPI    ~ KOLKATA
+T017 ~ J.L  ~ LAW     ~ ALIPUR
+T018 ~ K.D  ~ HINDI   ~ HOWRAH
+T019 ~ B.K  ~ STATS   ~ KOLKATA
+T020 ~ K.K  ~ ENGLISH ~ COOCHBEHAR
+
+
+o.
+~$ grep Kolkata teachers
+T001 | P.C. | D.S.    | Kolkata
+T016 | S.G  | CLPI    | Kolkata
+T019 | B.K  | Stats   | Kolkata
+
+p.
+~$ grep -c Howrah teachers
+2
+
+q.
+~$ grep -n Jadavpur teachers | cut -d ":" -f 1
+3

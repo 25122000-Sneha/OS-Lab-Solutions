@@ -1,3 +1,6 @@
+/*Write a program to implement Linked List mamagement of memory. Also implement First Fit, Best FIt Worst Fit algorithms.
+Try graphical implementation of the same.*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
